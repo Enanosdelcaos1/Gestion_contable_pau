@@ -28,7 +28,7 @@ js/
 - Navegador web moderno (Chrome, Firefox, Edge, etc.)
 
 ## Autor
-- Proyecto realizado por [Tu Nombre]
+- Proyecto realizado por [Pablo jose font aguilo]
 
 ## Licencia
 Este proyecto es de uso libre para fines educativos y personales.
