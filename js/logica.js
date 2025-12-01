@@ -1,11 +1,14 @@
+// importar un array, por que lo vamos a utilizar
+import { movimientos} from './data.js';
+
+
+
 // Dom de los modos del formulario
 const form=document.getElementById('formulario');
 const concepto=document.getElementById('concepto');
 const importe=document.getElementById('importe');
 const tipo=document.getElementById('tipo');
 
-// array para almacenar los movimientos (pulsa el boton)
-let movimientos=[]; 
 
 // evento submit del formulario
 form.addEventListener('submit', function(event){
