@@ -1,5 +1,222 @@
-*{
-   margin: 0;
+/* Reset CSS para que el diseño se vea igual en todos los navegadores y se parezca a la imagen de ejemplo */
+
+/* Elimina márgenes y paddings por defecto */
+* {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+}
+
+:root {
+  --color-bg: #f5f7fa;
+  --color-text: #222;
+  --color-header-bg: #fff;
+  --color-header-border: #e5e7eb;
+  --color-form-bg: #fff;
+  --color-form-border: #d1d5db;
+  --color-input-bg: #f9fafb;
+  --color-btn-bg: #377dff;
+  --color-btn-bg-hover: #2563eb;
+  --color-ingresos: #10b981;
+  --color-gastos: #ef4444;
+  --color-balance: #1e293b;
+  --color-card-bg: #fff;
+  --color-card-shadow: rgba(0,0,0,0.03);
+  --color-th: #6b7280;
+  --color-card-title: #444;
+
+  --radius-card: 16px;
+  --radius-form: 12px;
+  --radius-table: 12px;
+
+  --font-main: 'Segoe UI', Arial, sans-serif;
+  --font-title: 2rem;
+  --font-card-title: 1rem;
+  --font-card-value: 2rem;
+  --font-table: 1rem;
+  --font-label: 1rem;
+
+  --padding-main: 32px;
+  --padding-card: 32px 48px;
+  --padding-form: 24px;
+  --padding-input: 10px;
+  --padding-btn: 12px 0;
+  --padding-th: 12px 8px;
+  --padding-td: 12px 8px;
+}
+
+/* Reset + estilos principales para que la web se vea como la imagen */
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f5f7fa;
+  color: #222;
+}
+
+.header {
+  background: #fff;
+  padding: 24px 0 8px 32px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.container {
+  display: flex;
+  gap: 32px;
+  padding: 32px;
+}
+
+.formulario {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  padding: 24px;
+  min-width: 340px;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.label {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 4px;
+}
+.input, .select {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f9fafb;
+  margin-bottom: 12px;
+}
+.boton {
+  margin-top: 16px;
+  padding: 12px 0;
+  background: #377dff;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.boton:hover {
+  background: #2563eb;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabla-movimientos {
+  width: 100%;
+  background: #f3f4f6;
+  border-radius: 12px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+.th {
+  text-align: left;
+  color: #6b7280;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 8px;
+  background: #f3f4f6;
+  border: none;
+}
+.th.importe {
+  text-align: right;
+  font-weight: 700;
+}
+td {
+  padding: 12px 8px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 1rem;
+  color: #222;
+}
+td.importe {
+  text-align: right;
+  font-weight: 600;
+}
+
+.resumen {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+  justify-content: flex-end; /* Mueve las tarjetas a la derecha */
+  width: 100%;
+}
+
+.ingresos, .gastos, .balance {
+  background: #811515;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  padding: 24px 32px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+.ingresos {
+  color: #10b981;
+}
+.gastos {
+  color: #ef4444;
+}
+.balance {
+  color: #1e293b;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  padding: 32px 48px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+}
+.card-titulo {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 8px;
+}
+.card-valor {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.card-ingresos .card-valor {
+  color: #10b981;
+}
+.card-gastos .card-valor {
+  color: #ef4444;
+}
+.card-balance .card-valor {
+  color: #1e293b;
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
   }
+  .resumen {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+

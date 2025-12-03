@@ -1,5 +1,41 @@
+
+
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://jzpnichqlwmyopbhvmes.supabase.co'
+const supabaseKey = 'sb_publishable_07AaD22FyXkicbq1eocluQ_fC_YbqDg'
+const supabase = sb_secret_jNyiWf8tEVlgjNkpZ8i8IA_uGdqtiU0
+
+
+
+
 // importar un array, por que lo vamos a utilizar
 import { movimientos} from './data.js';
+
+function initSupabase() {
+    if (window.supabase) {
+        superbase = window.supabase.createClient(supabaseUrl, supabaseKey);
+        console.log('Supabase initialized');
+    }
+
+    async function guardarEn Supabase(movimiento) {
+       if (!supabase) {
+        console.error('Supabase no está inicializado');
+        return null;
+       }
+        const { data, error } = await supabase
+            .from('gestionPAU')
+            .insert([movimiento]);
+            .select();
+        if (error) {
+            console.error('Error al guardar en Supabase:', error);
+            return null;
+        }
+
+        return data;
+    }
+}
+
 
 
 
@@ -64,7 +100,6 @@ form.addEventListener('submit', function(event){
 function calcularBalance(){
     let totalIngresos=0;
     let totalGastos=0;
-    
     movimientos.forEach(function(movimiento){
         if(movimiento.tipo==='ingreso'){
             totalIngresos += movimiento.importe;
@@ -72,15 +107,10 @@ function calcularBalance(){
             totalGastos += movimiento.importe;
         }
     });
-   // la suma de ingreso y gasto se muestra en el html
-   const balenceIngresos = document.getElementById('totalIngresos');
-   const balenceGastos = document.getElementById('totalGastos');
-   const balenceTotal = document.getElementById('balanceTotal');    
-
-   //actualizar los valores en el html
-   balenceIngresos.textContent = totalIngresos
-   balenceGastos.textContent = totalGastos
-   const balanceTotal = totalIngresos - totalGastos;
-   balenceTotal.textContent = balanceTotal
+    // Actualizar los valores en las tarjetas debajo de la tabla
+    document.getElementById('cardIngresos').textContent = totalIngresos.toFixed(2) + ' €';
+    document.getElementById('cardGastos').textContent = totalGastos.toFixed(2) + ' €';
+    const balanceTotal = totalIngresos - totalGastos;
+    document.getElementById('cardBalance').textContent = balanceTotal.toFixed(2) + ' €';
 }
 });

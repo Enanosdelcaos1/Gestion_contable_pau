@@ -1,53 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gestion de gastos</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/reset.css">
-</head>
-<body>
-    <header class="header">
-        <h1 class="titulo">Gestion contable familiar</h1>
-    </header>        
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>gestion de gastos</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/reset.css">
+    </head>
+    <body>
+        <header class="header">
+            <h1 class="titulo">Gestion contable familiar</h1>
+        </header>        
 
-    <main class="main">
-        <form id="formulario" class="formulario">
-            <label for="concepto" class="label">concepto:</label>
-            <input type="text" id="concepto" name="concepto" required class="input">
+        <div class="container">
+            <main class="main">
+                <form id="formulario" class="formulario">
+                    <label for="concepto" class="label">concepto:</label>
+                    <input type="text" id="concepto" name="concepto" required class="input">
+                    
+                    <label for="importe" class="label">importe:</label>
+                    <input type="number" id="importe" name="importe" required step="0.0" min="0" class="input">
+                    
+                    <label for="tipo" name="tipo" class="label"></label>
+                    <select name="tipo" id="tipo" required class="select">
+                        <option value="ingreso">Ingreso</option>
+                        <option value="gasto">Gasto</option>
+                        
+                    </select>
 
-            <label for="importe" class="label">importe:</label>
-            <input type="number" id="importe" name="importe" required step="0.0" min="0" class="input">
 
-            <label for="tipo" name="tipo" class="label"></label>
-            <select name="tipo" id="tipo" required class="select">
-                <option value="ingreso">Ingreso</option>
-                <option value="gasto">Gasto</option>
-            </select>
-            <button type="submit" class="boton">Registro movimiento</button>
-        </form>
 
-        <table border="2" style="border-collapse:collapse;" class="tabla-movimientos">
-            <thead>
-                <tr>
-                    <th class="th">Concepto</th>
-                    <th class="th">Tipo</th>
-                    <th class="th importe">Importe</th>
-                </tr>
-            </thead>
-            <tbody id="movimientos-body">
-                <!-- Los movimientos se agregarán aquí dinámicamente -->
-            </tbody>
-        </table>
 
-        <!-- Elementos para mostrar los totales y el balance -->
-        <div class="resumen">
-            <p id="totalIngresos" class="ingresos"><!-- Muestra el total de ingresos --></p>
-            <p id="totalGastos" class="gastos"><!-- Muestra el total de gastos --></p>
-            <p id="balanceTotal" class="balance"><!-- Muestra el balance neto (ingresos - gastos) --></p>
-        </div>
+
+
+                    <button type="submit" class="boton">Registro movimiento</button>
+                </form>
+                
+                <table border="2" style="border-collapse:collapse;" class="tabla-movimientos">
+                    <thead>
+                        <tr>
+                            <th class="th">Concepto</th>
+                            <th class="th">Tipo</th>
+                            <th class="th importe">Importe</th>
+                        </tr>
+                    </thead>
+                    <tbody id="movimientos-body">
+                        <!-- Los movimientos se agregarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+
+                <!-- Tarjetas de totales debajo de la tabla -->
+                <div class="resumen">
+                    <section class="card card-ingresos">   
+                        <span class="card-titulo">Ingresos Totales</span>
+                        <span class="card-valor" id="cardIngresos"></span>
+                    </section>
+                    <section class="card card-gastos">   
+                        <span class="card-titulo">Gastos Totales</span>
+                        <span class="card-valor" id="cardGastos"></span>
+                    </section>
+                    <section class="card card-balance">   
+                        <span class="card-titulo">Balance Neto</span>
+                        <span class="card-valor" id="cardBalance"></span>
+                    </section>
+                </div>
+                
+                
+                
+                
+                
+            </div>
+
+
     </main>
     <script type="module" src="js/main.js"></script>
 </body>
 </html>
+
