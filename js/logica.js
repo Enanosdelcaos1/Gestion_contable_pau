@@ -18,18 +18,19 @@ function initSupabase() {
         console.log('Supabase initialized');
     }
 
-    async function guardarEn Supabase(movimiento) {
+    async function guardarEnSupabase(tabla, movimiento) {
+
        if (!supabase) {
         console.error('Supabase no está inicializado');
         return null;
        }
         const { data, error } = await supabase
-            .from('gestionPAU')
-            .insert([movimiento]);
+            .from(tabla)
+            .insert([movimiento])
             .select();
         if (error) {
             console.error('Error al guardar en Supabase:', error);
-            return null;
+            return null;git
         }
 
         return data;
